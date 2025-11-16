@@ -6,6 +6,7 @@
 typedef struct {
     const char *server;
     const char *filter_file;
+    bool verbose;
     int port;
 } Args;
 

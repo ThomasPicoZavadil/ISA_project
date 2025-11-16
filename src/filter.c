@@ -29,13 +29,13 @@ _Bool filter_load(const char *filename, FilterList *out) {
         // skip empty lines or comments
         if (line[0] == '\0' || line[0] == '#') continue;
 
-        char *domain = strdup(line); // strdup returns char*
+        char *domain = strdup(line);
         if (!domain) {
             fclose(f);
             return 0;
         }
 
-        strtolower_inplace(domain); // pass char*, not char**
+        strtolower_inplace(domain);
         out->domains[out->count] = domain;
         out->count++;
     }
@@ -68,18 +68,40 @@ _Bool filter_is_blocked(const FilterList *list, const char *domain) {
         size_t flen = strlen(f);
         if (flen == 0) continue;
 
-        // Wildcard at the start
+        // Wildcard at the start (*.example.com)
         if (f[0] == '*') {
             const char *suffix = f + 1; // skip '*'
             size_t slen = flen - 1;
             size_t dlen = strlen(tmp);
 
+            // Match if domain ends with the suffix
             if (dlen >= slen &&
                 strcasecmp(tmp + dlen - slen, suffix) == 0) {
                 return 1;
             }
         } else {
-            if (strcasecmp(tmp, f) == 0) return 1;
+            // Exact match or subdomain match
+            // example.com matches:
+            //   - example.com (exact)
+            //   - sub.example.com (subdomain)
+            //   - deep.sub.example.com (subdomain)
+            
+            size_t dlen = strlen(tmp);
+            
+            // Exact match
+            if (strcasecmp(tmp, f) == 0) {
+                return 1;
+            }
+            
+            // Subdomain match
+            // Check if tmp ends with ".filter_domain"
+            if (dlen > flen + 1) {  // +1 for the dot
+                // Check if there's a dot before the matching part
+                if (tmp[dlen - flen - 1] == '.' &&
+                    strcasecmp(tmp + dlen - flen, f) == 0) {
+                    return 1;
+                }
+            }
         }
     }
 

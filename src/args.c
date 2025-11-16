@@ -35,7 +35,8 @@ bool parse_args(int argc, char **argv, Args *out) {
                 fprintf(stderr, "Neplatný port: %d\n", out->port);
                 return false;
             }
-
+        } else if (strcmp(argv[i], "-v") == 0) {
+            out->verbose = true; 
         } else {
             fprintf(stderr, "Neznámý parametr: %s\n", argv[i]);
             return false;
