@@ -1,3 +1,8 @@
+/************************************
+*Jméno autora: Tomáš Zavadil
+*Login: xzavadt00
+************************************/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

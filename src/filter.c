@@ -1,3 +1,8 @@
+/************************************
+*Jméno autora: Tomáš Zavadil
+*Login: xzavadt00
+************************************/
+
 #define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdlib.h>

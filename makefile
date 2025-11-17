@@ -8,9 +8,9 @@ TARGET=dns
 SRCDIR=src
 
 # Source files
-SOURCES=$(SRCDIR)/main.c $(SRCDIR)/dns.c $(SRCDIR)/filter.c $(SRCDIR)/resolver.c $(SRCDIR)/args.c
+SOURCES=$(SRCDIR)/main.c $(SRCDIR)/dns.c $(SRCDIR)/filter.c $(SRCDIR)/forwarder.c $(SRCDIR)/args.c
 OBJECTS=$(SOURCES:.c=.o)
-HEADERS=$(SRCDIR)/main.h $(SRCDIR)/dns.h $(SRCDIR)/filter.h $(SRCDIR)/resolver.h $(SRCDIR)/args.h
+HEADERS=$(SRCDIR)/main.h $(SRCDIR)/dns.h $(SRCDIR)/filter.h $(SRCDIR)/forwarder.h $(SRCDIR)/args.h
 
 # Test files
 TEST_SCRIPT=test_dns.sh
@@ -19,7 +19,7 @@ TEST_SCRIPT=test_dns.sh
 all: $(TARGET)
 
 # Build the DNS proxy
-$(TARGET): $(OBJECTS)
+$(TARGET): $(OBJECTS) 
 	$(CC) -o $@ $^
 
 # Compile object files from src/

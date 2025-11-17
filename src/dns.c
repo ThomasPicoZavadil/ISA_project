@@ -1,3 +1,8 @@
+/************************************
+*Jméno autora: Tomáš Zavadil
+*Login: xzavadt00
+************************************/
+
 #include "dns.h"
 #include <stdint.h>
 #include <stdbool.h>

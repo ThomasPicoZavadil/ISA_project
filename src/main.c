@@ -1,3 +1,8 @@
+/************************************
+*Jméno autora: Tomáš Zavadil
+*Login: xzavadt00
+************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,7 +12,7 @@
 #include "args.h"
 #include "filter.h"
 #include "dns.h"
-#include "resolver.h"
+#include "forwarder.h"
 
 #define BUF_SIZE 512
 #define DEFAULT_TIMEOUT 5  // seconds

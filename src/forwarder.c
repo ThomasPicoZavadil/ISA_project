@@ -1,5 +1,10 @@
+/************************************
+*Jméno autora: Tomáš Zavadil
+*Login: xzavadt00
+************************************/
+
 #define _POSIX_C_SOURCE 200112L
-#include "resolver.h"
+#include "forwarder.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -74,7 +79,7 @@ bool resolver_forward_query(const char *server,
             continue;
         }
 
-        // Success!
+        // Success
         *response_len = recvd;
 
         // Overwrite TXID to match our query (proxy behavior)

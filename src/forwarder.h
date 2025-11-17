@@ -1,5 +1,5 @@
-#ifndef RESOLVER_H
-#define RESOLVER_H
+#ifndef FORWARDER_H
+#define FORWARDER_H
 
 #include <stdint.h>
 #include <stdbool.h>
