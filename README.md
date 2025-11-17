@@ -26,7 +26,7 @@ Tento program implementuje **DNS proxy**, která přijímá DNS dotazy typu **A*
 
 ## Příklad spuštění
 
-### 📦 Přeložení a ruční spuštění
+### Přeložení a ruční spuštění
 
 ```sh
 make
