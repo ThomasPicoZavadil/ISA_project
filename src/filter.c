@@ -14,7 +14,7 @@ static void strtolower_inplace(char *s) {
 }
 
 // Load filter file
-_Bool filter_load(const char *filename, FilterList *out) {
+bool filter_load(const char *filename, FilterList *out) {
     FILE *f = fopen(filename, "r");
     if (!f) return 0;
 
@@ -53,7 +53,7 @@ void filter_free(FilterList *list) {
 }
 
 // Check if domain is blocked
-_Bool filter_is_blocked(const FilterList *list, const char *domain) {
+bool filter_is_blocked(const FilterList *list, const char *domain) {
     char tmp[strlen(domain) + 1];
     strcpy(tmp, domain);
 
